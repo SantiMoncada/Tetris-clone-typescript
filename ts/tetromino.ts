@@ -1,6 +1,8 @@
+//https://tetris.fandom.com/wiki/SRS
 export type tetType = 'I' | 'J' | 'L' | 'O' | 'S' | 'T' | 'Z';
+
 export class Tetromino {
-    private static shapes = {
+    private static shapes: Record<tetType, number[][][]> = {
         I:
             [
                 [
@@ -17,8 +19,8 @@ export class Tetromino {
                 ],
                 [
                     [0, 0, 0, 0],
-                    [1, 1, 1, 1],
                     [0, 0, 0, 0],
+                    [1, 1, 1, 1],
                     [0, 0, 0, 0]
                 ],
                 [
@@ -166,26 +168,18 @@ export class Tetromino {
 
                 ],
                 [
-                    [0, 0, 0],
+                    [0, 1, 0],
                     [1, 1, 0],
-                    [0, 1, 1]
+                    [1, 0, 0]
                 ],
-            ]
-
+            ],
     }
 
-    private static tetrominos: String[] = Object.keys(this.shapes);
-
-    static getAllTetrominos() {
-        return Object.keys(this.shapes)
-    }
-
-    private tetrominoType: tetType;
+    readonly tetrominoType: tetType;
     private spin: number = 0;
 
     constructor(newShape: tetType) {
         this.tetrominoType = newShape;
-
     }
 
     getState() {
@@ -198,6 +192,6 @@ export class Tetromino {
     }
 
     rotateACW() {
-
+        this.spin = (this.spin + 5) % 4;
     }
 }

@@ -8,7 +8,10 @@ export class Board {
         // console.log('constructing');
         // console.log(this.board);
     }
-    StorePiece() { }
+    StorePiece(piece: number[][], posX: number, posY: number, value: number) {
+
+
+    }
 
     IsGameOver() { }
 

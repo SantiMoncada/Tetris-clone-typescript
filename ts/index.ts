@@ -1,18 +1,14 @@
 import { Board } from './board';
 import { Tetromino, tetType } from './tetromino';
 
-console.log(Tetromino.getAllTetrominos())
 
 
-console.log(Tetromino.getAllTetrominos())
-
-
-const tet = new Tetromino('L');
+const tet = new Tetromino('O');
 console.log(tet.getState())
 
-tet.rotateCW()
-tet.rotateCW()
-tet.rotateCW()
-tet.rotateCW()
+tet.rotateACW()
+tet.rotateACW()
+tet.rotateACW()
+tet.rotateACW()
 
 console.log(tet.getState())
