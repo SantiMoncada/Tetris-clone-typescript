@@ -3,12 +3,9 @@ import { Tetromino, tetType } from './tetromino';
 
 
 
-const tet = new Tetromino('O');
-console.log(tet.getState())
+const test = new Board();
 
-tet.rotateACW()
-tet.rotateACW()
-tet.rotateACW()
-tet.rotateACW()
-
-console.log(tet.getState())
+console.log(test.getBoardString())
+const tet = new Tetromino('Z').getState();
+test.storePiece(tet, 8, 0, 7);
+console.log(test.getBoardString())

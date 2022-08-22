@@ -5,12 +5,19 @@ export class Board {
     private board: number[][];
     constructor() {
         this.board = Array(this.height).fill([]).map(() => Array(this.width).fill(0));
-        // console.log('constructing');
-        // console.log(this.board);
     }
-    StorePiece(piece: number[][], posX: number, posY: number, value: number) {
-
-
+    storePiece(piece: number[][], posX: number, posY: number, color: number) {
+        piece.forEach((col, i) => {
+            col.forEach((value, j) => {
+                if (value !== 0) {
+                    console.log((j + posX), (this.width - 1))
+                    if (j + posX > this.width - 1 || i + posY > this.height) {
+                        throw Error(`Piece is out of board index ${i + posY} ${j + posX}`);
+                    }
+                    this.board[i + posY][j + posX] = color;
+                }
+            })
+        })
     }
 
     IsGameOver() { }
